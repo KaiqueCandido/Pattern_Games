@@ -12,18 +12,44 @@ import java.io.Serializable;
  *
  * @author kaique
  */
-public class Alugado implements Estado, Serializable{
-    
+public class Alugado implements Estado, Serializable {
+
+    private boolean especial;
+
+    public Alugado() {
+    }
+
+    public Alugado(boolean especial) {
+        this.especial = especial;
+    }
+
+    public boolean isEspecial() {
+        return especial;
+    }
+
+    public void setEspecial(boolean especial) {
+        this.especial = especial;
+    }
+
     @Override
-    public Estado alugar(){
+    public Estado alugar() {
         System.out.println("O jogo está alugado.");
         return this;
     }
-    
+
     @Override
-    public Estado devolver(){
+    public Estado devolver() {
         System.out.println("O jogo foi devolvido.");
         return new Disponivel();
     }
-    
+
+    @Override
+    public String toString() {
+        if (this.especial) {
+            return "Alugado " + "Tipo Especial";
+        } else {
+            return "Alugado " + "Tipo Normal";
+        }
+    }
+
 }

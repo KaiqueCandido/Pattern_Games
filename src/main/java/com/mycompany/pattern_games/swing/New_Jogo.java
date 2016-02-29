@@ -137,7 +137,7 @@ public class New_Jogo extends javax.swing.JPanel {
         GerenciadorDeJogo gj = new GerenciadorDeJogo();
         Jogo j = new Jogo();
         j.setTitulo(tituloTextFild.getText());
-        j.setPlataforma(plataformaTextFild.getText());
+        j.setGenero(plataformaTextFild.getText());
         gj.addJogo(j);
         JOptionPane.showMessageDialog(null, "Jogo Cadastrado com sucesso;");
         tituloTextFild.setText("");

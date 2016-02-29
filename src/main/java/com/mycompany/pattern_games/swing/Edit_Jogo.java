@@ -187,14 +187,14 @@ public class Edit_Jogo extends javax.swing.JPanel {
     private void jogoJlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jogoJlistMouseClicked
         Jogo jogoSelecionado = (Jogo) jogoJlist.getSelectedValue();
         tituloTextFild.setText(jogoSelecionado.getTitulo());
-        plataformaTextFild.setText(jogoSelecionado.getPlataforma());
+        plataformaTextFild.setText(jogoSelecionado.getGenero());
     }//GEN-LAST:event_jogoJlistMouseClicked
 
     private void editarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarJbuttonActionPerformed
         GerenciadorDeJogo gj = new GerenciadorDeJogo();
         Jogo jogoSelecionado = (Jogo) jogoJlist.getSelectedValue();
         jogoSelecionado.setTitulo(tituloTextFild.getText());
-        jogoSelecionado.setPlataforma(plataformaTextFild.getText());
+        jogoSelecionado.setGenero(plataformaTextFild.getText());
         if (gj.updateJogo(jogoSelecionado)) {
             JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso.");
         }

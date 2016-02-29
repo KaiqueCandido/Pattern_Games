@@ -26,7 +26,7 @@ public class Jogo implements Serializable {
     @NotNull
     private String titulo;
     @NotNull
-    private String plataforma;
+    private String genero;
     @NotNull
     private Estado estado;
 
@@ -34,10 +34,10 @@ public class Jogo implements Serializable {
         this.estado = new Disponivel();
     }
 
-    public Jogo(Integer id, String titulo, String plataforma) {
+    public Jogo(Integer id, String titulo, String genero) {
         this.id = id;
         this.titulo = titulo;
-        this.plataforma = plataforma;
+        this.genero = genero;
         this.estado = new Disponivel();
     }
 
@@ -57,12 +57,12 @@ public class Jogo implements Serializable {
         this.titulo = titulo;
     }
 
-    public String getPlataforma() {
-        return plataforma;
+    public String getGenero() {
+        return genero;
     }
 
-    public void setPlataforma(String plataforma) {
-        this.plataforma = plataforma;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
     public Estado getEstado() {
@@ -83,7 +83,7 @@ public class Jogo implements Serializable {
 
     @Override
     public String toString() {
-        return titulo + " / " + plataforma + " / " + estado;
+        return titulo + " / " + genero + " / " + estado;
     }
 
 }

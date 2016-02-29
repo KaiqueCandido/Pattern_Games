@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Cliente implements Serializable {
     private String cpf;
     @NotNull
     private String email;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Jogo> jogos;
 
     public Cliente() {
