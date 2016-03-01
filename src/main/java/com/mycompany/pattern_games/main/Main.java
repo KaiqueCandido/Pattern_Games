@@ -5,11 +5,8 @@
  */
 package com.mycompany.pattern_games.main;
 
-import com.mycompany.pattern_games.entidades.Cliente;
-import com.mycompany.pattern_games.entidades.Jogo;
-import com.mycompany.pattern_games.gerenciadores.GerenciadorDeJogo;
-import com.mycompany.pattern_games.gerenciadores.GerenciadorDeCliente;
-import java.util.List;
+
+import java.util.Calendar;
 
 /**
  *
@@ -18,16 +15,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Jogo jogo = new Jogo(1, "GTA", "PS2");
-        Cliente c = new Cliente(1, "Kaique Candido", "097.507.454-77", "kaique25_ci@hotmail.com");
-
-        GerenciadorDeJogo gj = new GerenciadorDeJogo();
-        GerenciadorDeCliente gu = new GerenciadorDeCliente();
-
-        List<Cliente> list = gu.listCliente();
-        for (Cliente list1 : list) {
-            System.out.println(list1);
-        }
+        Calendar c = Calendar.getInstance();
+        
+        System.out.println(c.get(Calendar.DAY_OF_YEAR));
 
     }
 }

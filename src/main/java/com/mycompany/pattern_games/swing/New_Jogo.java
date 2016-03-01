@@ -35,7 +35,7 @@ public class New_Jogo extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tituloTextFild = new javax.swing.JTextField();
-        plataformaTextFild = new javax.swing.JTextField();
+        generoTextFild = new javax.swing.JTextField();
         salvarJbutton = new javax.swing.JButton();
         cancelarJbutton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
@@ -49,7 +49,7 @@ public class New_Jogo extends javax.swing.JPanel {
         jLabel2.setText("Titulo");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("Plataforma");
+        jLabel3.setText("Genero");
 
         tituloTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tituloTextFild.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,7 @@ public class New_Jogo extends javax.swing.JPanel {
             }
         });
 
-        plataformaTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        generoTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         salvarJbutton.setText("Salvar");
         salvarJbutton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +84,7 @@ public class New_Jogo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
                     .addComponent(tituloTextFild)
-                    .addComponent(plataformaTextFild)
+                    .addComponent(generoTextFild)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +114,7 @@ public class New_Jogo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plataformaTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generoTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -137,23 +137,22 @@ public class New_Jogo extends javax.swing.JPanel {
         GerenciadorDeJogo gj = new GerenciadorDeJogo();
         Jogo j = new Jogo();
         j.setTitulo(tituloTextFild.getText());
-        j.setGenero(plataformaTextFild.getText());
-        gj.addJogo(j);
-        JOptionPane.showMessageDialog(null, "Jogo Cadastrado com sucesso;");
+        j.setGenero(generoTextFild.getText());
+        gj.addJogo(j);        
         tituloTextFild.setText("");
-        plataformaTextFild.setText("");
+        generoTextFild.setText("");
     }//GEN-LAST:event_salvarJbuttonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarJbutton;
+    private javax.swing.JTextField generoTextFild;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField plataformaTextFild;
     private javax.swing.JButton salvarJbutton;
     private javax.swing.JTextField tituloTextFild;
     // End of variables declaration//GEN-END:variables

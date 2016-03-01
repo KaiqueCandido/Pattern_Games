@@ -13,5 +13,5 @@ public interface Estado {
 
     Estado alugar();
 
-    Estado devolver();
+    Estado devolver();    
 }

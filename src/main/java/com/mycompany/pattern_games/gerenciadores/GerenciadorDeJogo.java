@@ -5,16 +5,10 @@
  */
 package com.mycompany.pattern_games.gerenciadores;
 
-import br.com.caelum.stella.ValidationMessage;
-import br.com.caelum.stella.validation.CPFValidator;
+import com.mycompany.pattern_games.dao.JogoDAO;
 import com.mycompany.pattern_games.entidades.Cliente;
 import com.mycompany.pattern_games.entidades.Jogo;
-import com.mycompany.pattern_games.estado.Alugado;
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 /**
  *
@@ -22,40 +16,24 @@ import javax.persistence.Query;
  */
 public class GerenciadorDeJogo {
 
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-    EntityManager em = factory.createEntityManager();
-
     public void addJogo(Jogo j) {
-        em.getTransaction().begin();
-        em.persist(j);
-        em.getTransaction().commit();
-        em.close();
+        new JogoDAO().addJogo(j);
     }
 
     public List<Jogo> listJogo() {
-        Query query = em.createQuery("select j from Jogo j");
-        return query.getResultList();
+        return new JogoDAO().listJogo();
     }
 
     public boolean updateJogo(Jogo j) {
-        em.getTransaction().begin();
-        em.merge(j);
-        em.getTransaction().commit();
-        em.close();
-        return true;
+        return new JogoDAO().updateJogo(j);
     }
 
     public void locateJogo(Cliente c, Jogo j) {
-        em.getTransaction().begin();
+        new JogoDAO().locateJogo(c, j);
+    }
 
-        c.addJogo(j);
-        j.setEstado(new Alugado());
-
-        em.merge(c);
-        em.merge(j);
-
-        em.getTransaction().commit();
-        em.close();
+    public void devolverJogo(Cliente c, Jogo j) {
+        new JogoDAO().devolverJogo(c, j);
     }
 
 }

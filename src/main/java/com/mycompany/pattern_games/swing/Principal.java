@@ -215,13 +215,21 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
+        this.jPanel1.removeAll();
+        try {
+            Devolver_Jogo devolverJogo = new Devolver_Jogo();
+            devolverJogo.setSize(463, 501);
+            this.jPanel1.add((Component) devolverJogo);
+            devolverJogo.setVisible(true);
+            SwingUtilities.updateComponentTreeUI(this.jPanel1);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         this.jPanel1.removeAll();
         try {
-            locate_Jogo locateJogo = new locate_Jogo();
+            Locar_Jogo locateJogo = new Locar_Jogo();
             locateJogo.setSize(463, 501);
             this.jPanel1.add((Component) locateJogo);
             locateJogo.setVisible(true);

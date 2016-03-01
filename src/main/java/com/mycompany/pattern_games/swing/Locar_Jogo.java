@@ -11,12 +11,12 @@ import javax.swing.text.Position;
  *
  * @author kaique
  */
-public class locate_Jogo extends javax.swing.JPanel {
+public class Locar_Jogo extends javax.swing.JPanel {
 
     /**
      * Creates new form New_Client
      */
-    public locate_Jogo() {
+    public Locar_Jogo() {
         initComponents();
         this.jogoJlist.setListData(new GerenciadorDeJogo().listJogo().toArray());
         this.clienteJlist.setListData(new GerenciadorDeCliente().listCliente().toArray());
@@ -209,8 +209,9 @@ public class locate_Jogo extends javax.swing.JPanel {
     private void locarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_locarJbuttonActionPerformed
         Jogo jogo = (Jogo) jogoJlist.getSelectedValue();
         Cliente cliente = (Cliente) clienteJlist.getSelectedValue();
-        new GerenciadorDeJogo().locateJogo(cliente, jogo);
-        JOptionPane.showMessageDialog(null, "Jogo alugado com sucesso.");
+        new GerenciadorDeJogo().locateJogo(cliente, jogo);    
+        this.jogoJlist.setListData(new GerenciadorDeJogo().listJogo().toArray());
+        this.clienteJlist.setListData(new GerenciadorDeCliente().listCliente().toArray());
     }//GEN-LAST:event_locarJbuttonActionPerformed
 
     private void cancelarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarJbuttonActionPerformed

@@ -22,7 +22,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                   <Component id="tituloTextFild" alignment="0" max="32767" attributes="0"/>
-                  <Component id="plataformaTextFild" alignment="0" max="32767" attributes="0"/>
+                  <Component id="generoTextFild" alignment="0" max="32767" attributes="0"/>
                   <Component id="jSeparator3" alignment="1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -58,7 +58,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="plataformaTextFild" min="-2" max="-2" attributes="0"/>
+              <Component id="generoTextFild" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -93,7 +93,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="18" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Plataforma"/>
+        <Property name="text" type="java.lang.String" value="Genero"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tituloTextFild">
@@ -106,7 +106,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tituloTextFildActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="plataformaTextFild">
+    <Component class="javax.swing.JTextField" name="generoTextFild">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="0"/>

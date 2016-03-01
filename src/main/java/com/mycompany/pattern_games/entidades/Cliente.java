@@ -79,6 +79,14 @@ public class Cliente implements Serializable {
         this.email = email;
     }
 
+    public List<Jogo> getJogos() {
+        return jogos;
+    }
+
+    public void setJogos(List<Jogo> jogos) {
+        this.jogos = jogos;
+    }
+
     public void addJogo(Jogo j) {
         this.jogos.add(j);
     }

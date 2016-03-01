@@ -37,7 +37,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
         jogoJlist = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
         tituloTextFild = new javax.swing.JTextField();
-        plataformaTextFild = new javax.swing.JTextField();
+        generoTextFild = new javax.swing.JTextField();
         editarJbutton = new javax.swing.JButton();
         cancelarJbutton = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -76,7 +76,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jogoJlist);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("Plataforma");
+        jLabel3.setText("Genero");
 
         tituloTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tituloTextFild.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +85,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
             }
         });
 
-        plataformaTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        generoTextFild.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         editarJbutton.setText("Salvar");
         editarJbutton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +134,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
                     .addComponent(jLabel5)
                     .addComponent(jLabel3)
                     .addComponent(tituloTextFild)
-                    .addComponent(plataformaTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(generoTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(86, 86, 86))
         );
         layout.setVerticalGroup(
@@ -161,7 +161,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plataformaTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(generoTextFild, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -187,14 +187,14 @@ public class Edit_Jogo extends javax.swing.JPanel {
     private void jogoJlistMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jogoJlistMouseClicked
         Jogo jogoSelecionado = (Jogo) jogoJlist.getSelectedValue();
         tituloTextFild.setText(jogoSelecionado.getTitulo());
-        plataformaTextFild.setText(jogoSelecionado.getGenero());
+        generoTextFild.setText(jogoSelecionado.getGenero());
     }//GEN-LAST:event_jogoJlistMouseClicked
 
     private void editarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarJbuttonActionPerformed
         GerenciadorDeJogo gj = new GerenciadorDeJogo();
         Jogo jogoSelecionado = (Jogo) jogoJlist.getSelectedValue();
         jogoSelecionado.setTitulo(tituloTextFild.getText());
-        jogoSelecionado.setGenero(plataformaTextFild.getText());
+        jogoSelecionado.setGenero(generoTextFild.getText());
         if (gj.updateJogo(jogoSelecionado)) {
             JOptionPane.showMessageDialog(null, "Cliente atualizado com sucesso.");
         }
@@ -207,6 +207,7 @@ public class Edit_Jogo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelarJbutton;
     private javax.swing.JButton editarJbutton;
+    private javax.swing.JTextField generoTextFild;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -219,7 +220,6 @@ public class Edit_Jogo extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JList jogoJlist;
     private javax.swing.JTextField pesquisarJogotextFild;
-    private javax.swing.JTextField plataformaTextFild;
     private javax.swing.JTextField tituloTextFild;
     // End of variables declaration//GEN-END:variables
 }
