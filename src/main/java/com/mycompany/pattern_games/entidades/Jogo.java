@@ -8,6 +8,7 @@ package com.mycompany.pattern_games.entidades;
 import com.mycompany.pattern_games.estado.Disponivel;
 import com.mycompany.pattern_games.interfaces.Estado;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -83,7 +84,41 @@ public class Jogo implements Serializable {
 
     @Override
     public String toString() {
-        return titulo + " / " + genero + " / " + estado;
+        return titulo + " / " + estado;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.id);
+        hash = 29 * hash + Objects.hashCode(this.titulo);
+        hash = 29 * hash + Objects.hashCode(this.genero);
+        hash = 29 * hash + Objects.hashCode(this.estado);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Jogo other = (Jogo) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.genero, other.genero)) {
+            return false;
+        }
+        if (!Objects.equals(this.estado, other.estado)) {
+            return false;
+        }
+        return true;
     }
 
 }

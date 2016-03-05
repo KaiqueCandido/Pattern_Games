@@ -5,9 +5,11 @@
  */
 package com.mycompany.pattern_games.swing;
 
+import br.com.caelum.stella.ValidationMessage;
 import br.com.caelum.stella.validation.CPFValidator;
 import com.mycompany.pattern_games.entidades.Cliente;
 import com.mycompany.pattern_games.gerenciadores.GerenciadorDeCliente;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -153,17 +155,25 @@ public class New_Client extends javax.swing.JPanel {
 
     private void salvarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarJbuttonActionPerformed
         GerenciadorDeCliente gc = new GerenciadorDeCliente();
-        CPFValidator validator = new CPFValidator();        
-        Cliente cliente = new Cliente();        
-        cliente.setNome(nomeTextFild.getText());        
-        validator.assertValid(CPFJtextFild.getText());        
-        cliente.setCpf(CPFJtextFild.getText());
-        cliente.setEmail(emailTextFild.getText());
-        gc.addCliente(cliente);
-        JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso;");
-        nomeTextFild.setText("");
-        CPFJtextFild.setText("");
-        emailTextFild.setText("");
+        CPFValidator validator = new CPFValidator();
+        Cliente cliente = new Cliente();
+        cliente.setNome(nomeTextFild.getText());
+
+        List<ValidationMessage> invalidMessagesFor = validator.invalidMessagesFor(CPFJtextFild.getText());
+
+        if (invalidMessagesFor.size() > 0) {
+            for (ValidationMessage invalidMessagesFor1 : invalidMessagesFor) {
+                JOptionPane.showMessageDialog(null, invalidMessagesFor);
+            }
+        } else {
+            cliente.setCpf(CPFJtextFild.getText());
+            cliente.setEmail(emailTextFild.getText());
+            gc.addCliente(cliente);
+            JOptionPane.showMessageDialog(null, "Cliente Cadastrado com sucesso;");
+            nomeTextFild.setText("");
+            CPFJtextFild.setText("");
+            emailTextFild.setText("");
+        }
     }//GEN-LAST:event_salvarJbuttonActionPerformed
 
     private void cancelarJbuttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarJbuttonActionPerformed

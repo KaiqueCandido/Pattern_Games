@@ -48,7 +48,7 @@ public class Alugado implements Estado, Serializable {
 
     @Override
     public Estado devolver() {
-        JOptionPane.showMessageDialog(null, "Valor total da locação:\n R$:" + this.totalAluguel());
+        JOptionPane.showMessageDialog(null, "Valor total da locação:\n R$: " + this.totalAluguel());
         JOptionPane.showMessageDialog(null, "O jogo foi devolvido.");
         return new Disponivel();
     }

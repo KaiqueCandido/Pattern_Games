@@ -5,10 +5,14 @@
  */
 package com.mycompany.pattern_games.gerenciadores;
 
+import com.mycompany.pattern_games.dao.ClienteDAO;
 import com.mycompany.pattern_games.dao.JogoDAO;
 import com.mycompany.pattern_games.entidades.Cliente;
 import com.mycompany.pattern_games.entidades.Jogo;
+import com.mycompany.pattern_games.estado.Alugado;
+import com.mycompany.pattern_games.javamail.JavaMailApp;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,10 +33,35 @@ public class GerenciadorDeJogo {
     }
 
     public void locateJogo(Cliente c, Jogo j) {
-        new JogoDAO().locateJogo(c, j);
+        if (j.getEstado() instanceof Alugado) {
+            int showConfirmDialog = JOptionPane.showConfirmDialog(null,
+                    "Este jogo se encontra alugado no momento."
+                    + "\nGostaria de saber quando o jogo estara disponivel ? ");
+            if (showConfirmDialog == 0) {
+                c.setJogoObservado(j);
+                JOptionPane.showMessageDialog(null,
+                        "Obrigado!\nVocê recebera um e-mail assim que o jogo "
+                        + j.getTitulo() + " estiver disponivel.");
+                new JogoDAO().observaJogo(c, j);
+            }
+        } else {
+            new JogoDAO().locateJogo(c, j);
+        }
+
     }
 
-    public void devolverJogo(Cliente c, Jogo j) {
+    public void devolverJogo(Cliente c, Jogo j) {        
+        List<Cliente> clientes = new ClienteDAO().listCliente();        
+        for (Cliente cliente : clientes) {            
+            if (cliente.getJogoObservado() != null) {               
+                if (cliente.getJogoObservado().getId() == j.getId()) {
+
+                    System.out.println("Entrou");
+
+                    new JavaMailApp().mandaEmail(cliente);
+                }
+            }
+        }        
         new JogoDAO().devolverJogo(c, j);
     }
 

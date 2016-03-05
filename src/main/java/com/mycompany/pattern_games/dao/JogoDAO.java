@@ -46,7 +46,7 @@ public class JogoDAO {
     public void locateJogo(Cliente c, Jogo j) {
         em.getTransaction().begin();
         c.addJogo(j);
-        j.alugar();        
+        j.alugar();                                
         em.merge(c);
         em.merge(j);
         em.getTransaction().commit();
@@ -59,6 +59,13 @@ public class JogoDAO {
         j.devolver();
         em.merge(c);
         em.merge(j);
+        em.getTransaction().commit();
+        em.close();
+    }
+    
+    public void observaJogo(Cliente c, Jogo j){
+        em.getTransaction().begin();                
+        em.merge(c);        
         em.getTransaction().commit();
         em.close();
     }
